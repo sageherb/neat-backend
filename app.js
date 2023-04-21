@@ -19,6 +19,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect(process.env.MONGODB_URI);
 
+app.use(require("./routes"));
+
 app.use((req, res, next) => {
   next(createError(404));
 });
