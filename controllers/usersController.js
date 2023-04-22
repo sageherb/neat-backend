@@ -20,8 +20,8 @@ const signin = async (req, res, next) => {
     const token = generateToken(user._id);
 
     res.status(200).json({ token });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
