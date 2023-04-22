@@ -15,5 +15,6 @@ module.exports = {
     "no-unused-vars": "warn",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
+    "consistent-return": "warn",
   },
 };

@@ -1,5 +1,4 @@
 const axios = require("axios");
-const jwt = require("jsonwebtoken");
 
 const getGoogleUserInfo = async (accessToken) => {
   try {
@@ -20,12 +19,4 @@ const getGoogleUserInfo = async (accessToken) => {
   }
 };
 
-const generateToken = (userId, expiresIn = "7d") => {
-  const secret = process.env.JWT_SECRET;
-  const payload = { userId };
-  const options = { expiresIn };
-
-  return jwt.sign(payload, secret, options);
-};
-
-module.exports = { getGoogleUserInfo, generateToken };
+module.exports = { getGoogleUserInfo };
