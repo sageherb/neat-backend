@@ -15,4 +15,17 @@ const createMemo = async (req, res, next) => {
   }
 };
 
-module.exports = { createMemo };
+const updateMemo = async (req, res, next) => {
+  try {
+    const { memoId } = req.params;
+    const { content } = req.body;
+
+    await Memo.findByIdAndUpdate(memoId, { content });
+
+    res.status(200).json({ memoId });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { createMemo, updateMemo };
