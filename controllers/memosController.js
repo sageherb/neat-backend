@@ -63,4 +63,16 @@ const updateMemo = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllMemos, createMemo, getMemo, updateMemo };
+const deleteMemo = async (req, res, next) => {
+  try {
+    const { memoId } = req.params;
+
+    await Memo.findByIdAndDelete(memoId);
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getAllMemos, createMemo, getMemo, updateMemo, deleteMemo };
